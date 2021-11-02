@@ -47,7 +47,7 @@ return array(
     'name' => 'LimeSurvey',
     'components' => array(
         'db' => array(
-            'connectionString' => 'pgsql:host='+$host+';port=5432;user='+$username+';password='+$password+';dbname='+$database+';',
+            'connectionString' => 'pgsql:host='.$host.';port=5432;user='.$username.';password='.$password.';dbname='.$database.';',
             'emulatePrepare' => true,
             'username' => $username,
             'password' => $password,
