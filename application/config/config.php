@@ -26,10 +26,7 @@
 $databaseConnection = getenv("DATABASE_URL");
 echo $databaseConnection;
 $filter1 = explode("postgres://", $databaseConnection);
-echo $filter1;
-
 $filter2 = explode("/", $filter1[1]);
-echo $filter2;
 
 $database = $filter2[1];
 echo $database;
