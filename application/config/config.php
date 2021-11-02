@@ -23,30 +23,29 @@
 |                 to the table name when using the Active Record class
 |
 */
-<?php 
-    $databaseConnection = getenv("DATABASE_URL");
-    echo $databaseConnection;
-    $filter1 = explode("postgres://", $databaseConnection);
-    echo $filter1;
+$databaseConnection = getenv("DATABASE_URL");
+echo $databaseConnection;
+$filter1 = explode("postgres://", $databaseConnection);
+echo $filter1;
 
-    $filter2 = explode("/", $filter1[1]);
-    echo $filter2;
+$filter2 = explode("/", $filter1[1]);
+echo $filter2;
 
-    $database = $filter2[1];
-    echo $database;
+$database = $filter2[1];
+echo $database;
 
-    $username = explode(":", $filter1)[0];
-    echo $username;
+$username = explode(":", $filter1)[0];
+echo $username;
 
-    $filter3 = explode($username+":", $filter2[0]);
-    echo $filter3;
+$filter3 = explode($username+":", $filter2[0]);
+echo $filter3;
 
-    $password = explode("@", $filter3[0])[0];
-    $host = explode("@", $filter3[0])[1];
+$password = explode("@", $filter3[0])[0];
+$host = explode("@", $filter3[0])[1];
 
-    echo $password;
-    echo $host;
-?>
+echo $password;
+echo $host;
+
 return array(
     'name' => 'LimeSurvey',
     'components' => array(
