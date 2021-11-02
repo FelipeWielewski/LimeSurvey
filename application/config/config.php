@@ -23,14 +23,37 @@
 |                 to the table name when using the Active Record class
 |
 */
+$databaseConnection = getenv("DATABASE_URL");
+echo $databaseConnection;
+$filter1 = explode("postgres://", $databaseConnection);
+echo $filter1;
+
+$filter2 = explode("/", $filter1[1]);
+echo $filter2;
+
+$database = $filter2[1];
+echo $database;
+
+$username = explode(":", $filter1)[0];
+echo $username;
+
+$filter3 = explode($username+":", $filter2[0]);
+echo $filter3;
+
+$password = explode("@", $filter3[0])[0];
+$host = explode("@", $filter3[0])[1];
+
+echo $password;
+echo $host;
+
 return array(
     'name' => 'LimeSurvey',
     'components' => array(
         'db' => array(
-            'connectionString' => 'pgsql:host=ec2-3-228-86-183.compute-1.amazonaws.com;port=5432;user=uvcnrjthjyrbkx;password=99d382eda358bd1b67f89de475489ab9c2815fb9fbc49ac8ca9b21bf8860f16c;dbname=de4rgm8uifue5j;',
+            'connectionString' => 'pgsql:host='+$host+';port=5432;user='+$username+';password='+$password+';dbname='+$database+';',
             'emulatePrepare' => true,
-            'username' => 'uvcnrjthjyrbkx',
-            'password' => '99d382eda358bd1b67f89de475489ab9c2815fb9fbc49ac8ca9b21bf8860f16c',
+            'username' => $username,
+            'password' => $password,
             'charset' => 'utf8',
             'tablePrefix' => 'lime_',
         ),
