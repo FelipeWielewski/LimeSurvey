@@ -21,6 +21,17 @@ class remotecontrol extends Survey_Common_Action
     protected $xmlrpc;
 
     /**
+     * @inheritdoc
+     */
+    public function beforeAction($action)
+    {            
+        echo 'passou por aqui';
+        $this->enableCsrfValidation = false;
+
+        return parent::beforeAction($action);
+    }
+
+    /**
      * This is the XML-RPC server routine
      *
      * @access public
@@ -99,6 +110,8 @@ class remotecontrol extends Survey_Common_Action
      */
     public function test()
     {
+        Yii::app()->controller->enableCsrfValidation = false;
+
         // Enable if you want to test this function
         $enabled = false;
         if ($enabled) {
