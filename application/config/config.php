@@ -23,29 +23,30 @@
 |                 to the table name when using the Active Record class
 |
 */
-$databaseConnection = getenv("DATABASE_URL");
-echo $databaseConnection;
-$filter1 = explode("postgres://", $databaseConnection);
-echo $filter1;
+<?php 
+    $databaseConnection = getenv("DATABASE_URL");
+    echo $databaseConnection;
+    $filter1 = explode("postgres://", $databaseConnection);
+    echo $filter1;
 
-$filter2 = explode("/", $filter1[1]);
-echo $filter2;
+    $filter2 = explode("/", $filter1[1]);
+    echo $filter2;
 
-$database = $filter2[1];
-echo $database;
+    $database = $filter2[1];
+    echo $database;
 
-$username = explode(":", $filter1)[0];
-echo $username;
+    $username = explode(":", $filter1)[0];
+    echo $username;
 
-$filter3 = explode($username+":", $filter2[0]);
-echo $filter3;
+    $filter3 = explode($username+":", $filter2[0]);
+    echo $filter3;
 
-$password = explode("@", $filter3[0])[0];
-$host = explode("@", $filter3[0])[1];
+    $password = explode("@", $filter3[0])[0];
+    $host = explode("@", $filter3[0])[1];
 
-echo $password;
-echo $host;
-
+    echo $password;
+    echo $host;
+?>
 return array(
     'name' => 'LimeSurvey',
     'components' => array(
@@ -81,8 +82,8 @@ return array(
     // then please check your error-logs - either in your hosting provider admin panel or in some /logs directory
     // on your webspace.
     // LimeSurvey developers: Set this to 2 to additionally display STRICT PHP error messages and get full access to standard themes
-        'debug'=>0,
-        'debugsql'=>0, // Set this to 1 to enanble sql logging, only active when debug = 2
+        'debug'=>1,
+        'debugsql'=>1, // Set this to 1 to enanble sql logging, only active when debug = 2
         // 'force_xmlsettings_for_survey_rendering' => true, // Uncomment if you want to force the use of the XML file rather than DB (for easy theme development)
         // 'use_asset_manager'=>true, // Uncomment if you want to use debug mode and asset manager at the same time
     )
