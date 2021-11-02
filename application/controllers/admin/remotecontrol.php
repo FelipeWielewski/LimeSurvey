@@ -40,7 +40,6 @@ class remotecontrol extends Survey_Common_Action
     public function run()
     {
         Yii::import('application.helpers.remotecontrol.*');
-        Yii::app()->controller->enableCsrfValidation = false;
         
         $setAccessControlHeader = Yii::app()->getConfig('add_access_control_header', 1);
         if ($setAccessControlHeader == 1) {
@@ -110,7 +109,6 @@ class remotecontrol extends Survey_Common_Action
      */
     public function test()
     {
-        Yii::app()->controller->enableCsrfValidation = false;
 
         // Enable if you want to test this function
         $enabled = false;
