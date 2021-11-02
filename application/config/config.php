@@ -31,7 +31,7 @@ $filter2 = explode("/", $filter1[1]);
 $database = $filter2[1];
 echo $database;
 
-$username = explode(":", $filter1)[0];
+$username = explode(":", $filter1[1])[0];
 echo $username;
 
 $filter3 = explode($username+":", $filter2[0]);
