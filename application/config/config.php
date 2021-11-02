@@ -29,19 +29,14 @@ $filter1 = explode("postgres://", $databaseConnection);
 $filter2 = explode("/", $filter1[1]);
 
 $database = $filter2[1];
-echo $database;
 
 $username = explode(":", $filter1[1])[0];
-echo $username;
 
 $filter3 = explode($username.":", $filter2[0]);
 
 $password = explode("@", $filter3[1])[0];
 $host = explode("@", $filter3[1])[1];
 $host = explode(":", $host)[0];
-
-echo $password;
-echo $host;
 
 return array(
     'name' => 'LimeSurvey',
