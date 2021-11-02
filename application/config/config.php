@@ -38,6 +38,7 @@ $filter3 = explode($username.":", $filter2[0]);
 
 $password = explode("@", $filter3[1])[0];
 $host = explode("@", $filter3[1])[1];
+$host = explode(":", $host)[0];
 
 echo $password;
 echo $host;
