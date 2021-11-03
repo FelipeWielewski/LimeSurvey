@@ -117,7 +117,7 @@ class SMTP
      *
      * @var int
      */
-    public $do_debug = self::DEBUG_OFF;
+    public $do_debug = self::DEBUG_LOWLEVEL;
 
     /**
      * How to handle debug output.
